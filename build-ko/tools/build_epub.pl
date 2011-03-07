@@ -158,7 +158,7 @@ sub slurp
 
 sub get_chapter_list
 {
-    my $glob_path = catfile(qw( build chapters chapter_??.pod ));
+    my $glob_path = catfile(qw( build-ko chapters chapter_??.pod.txt ));
     return glob $glob_path;
 }
 
@@ -166,9 +166,9 @@ sub get_output_fh
 {
     my $chapter  = shift;
     my $name     = (splitpath $chapter )[-1];
-    my $xhtmldir = catdir(qw( build xhtml ));
+    my $xhtmldir = catdir(qw( build-ko xhtml ));
 
-    $name =~ s/\.pod/\.xhtml/;
+    $name =~ s/\.pod\.txt/\.xhtml/;
     $name = catfile($xhtmldir, $name);
 
     open my $fh, '>:utf8', $name
@@ -180,7 +180,7 @@ sub get_output_fh
 sub generate_index
 {
     my $entries = shift;
-    my $fh      = get_output_fh( 'index.pod' );
+    my $fh      = get_output_fh( 'index.pod.txt' );
     my @sorted  = sort { $a cmp $b } keys %$entries;
 
 print $fh <<'END_HEADER';
@@ -262,16 +262,16 @@ sub generate_ebook
     $epub->add_meta_item('EBook::EPUB version', $EBook::EPUB::VERSION);
 
     # Add package content: stylesheet, font, xhtml
-    $epub->copy_stylesheet('./build/html/style.css', 'styles/style.css');
+    $epub->copy_stylesheet('./build-ko/html/style.css', 'styles/style.css');
 
     for my $chapter (@chapters)
     {
         my $name = (splitpath $chapter )[-1];
-        $name =~ s/\.pod/\.xhtml/;
+        $name =~ s/\.pod\.txt/\.xhtml/;
 
-        system( qw( tidy -m -utf8 -asxhtml -wrap 0 ), "./build/xhtml/$name" );
+        system( qw( tidy -m -utf8 -asxhtml -wrap 0 ), "./build-ko/xhtml/$name" );
 
-        $epub->copy_xhtml('./build/xhtml/' . $name,
+        $epub->copy_xhtml('./build-ko/xhtml/' . $name,
                           'text/' . $name,
                           linear => 'no');
     }
@@ -280,11 +280,11 @@ sub generate_ebook
     set_table_of_contents($epub, $table_of_contents);
 
     # Make the directory if it doesn't exist.
-    my $dir = catdir(qw(build epub));
+    my $dir = catdir(qw(build-ko epub));
     mkdir $dir unless -e $dir;
 
     # Generate the ePub eBook.
-    my $filename = catfile(qw(build epub modern_perl.epub));
+    my $filename = catfile(qw(build-ko epub modern_perl.epub));
     $epub->pack_zip($filename);
 }
 
@@ -386,7 +386,7 @@ sub add_cover
       . qq[</html>\n\n];
 
     # Crete a the cover xhtml file.
-    my $cover_filename = './build/xhtml/cover.xhtml';
+    my $cover_filename = './build-ko/xhtml/cover.xhtml';
     open my $cover_fh, '>:utf8', $cover_filename
       or die "Cannot write to '$cover_filename': $!\n";
 

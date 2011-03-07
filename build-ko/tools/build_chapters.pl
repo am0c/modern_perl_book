@@ -21,14 +21,14 @@ exit;
 
 sub get_chapter_list
 {
-    my $glob_path = catfile( 'sections', 'chapter_??.pod' );
+    my $glob_path = catfile( 'sections-ko', 'target', 'chapter_??.pod.txt' );
     return glob( $glob_path );
 }
 
 sub get_section_list
 {
     my %sections;
-    my $sections_path = catfile( 'sections', '*.pod' );
+    my $sections_path = catfile( 'sections-ko', 'target', '*.pod.txt' );
 
     for my $section (glob( $sections_path ))
     {
@@ -87,7 +87,7 @@ sub write_chapter
 {
     my ($path, $text) = @_;
     my $name          = ( splitpath $path )[-1];
-    my $chapter_dir   = catdir( 'build', 'chapters' );
+    my $chapter_dir   = catdir( 'build-ko', 'chapters' );
     my $chapter_path  = catfile( $chapter_dir, $name );
 
     mkpath( $chapter_dir ) unless -e $chapter_dir;

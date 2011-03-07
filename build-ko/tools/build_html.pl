@@ -71,7 +71,7 @@ sub slurp
 
 sub get_chapter_list
 {
-    my $glob_path = catfile( qw( build chapters chapter_??.pod ) );
+    my $glob_path = catfile( qw( build-ko chapters chapter_??.pod.txt ) );
     return glob $glob_path;
 }
 
@@ -79,9 +79,9 @@ sub get_output_fh
 {
     my $chapter = shift;
     my $name    = ( splitpath $chapter )[-1];
-    my $htmldir = catdir( qw( build html ) );
+    my $htmldir = catdir( qw( build-ko html ) );
 
-    $name       =~ s/\.pod/\.html/;
+    $name       =~ s/\.pod.txt/\.html/;
     $name       = catfile( $htmldir, $name );
 
     open my $fh, '>:utf8', $name
