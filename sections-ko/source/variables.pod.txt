@@ -1,0 +1,94 @@
+=head1 Variables
+
+Z<variables>
+X<variable>
+
+A I<variable> in Perl is a storage location for a value (L<values>).  You can
+work with values directly, but all but the most trivial code works with
+variables.  A variable is a level of indirection; it's easier to explain the
+Pythagorean theorem in terms of the variables C<a>, C<b>, and C<c> than with
+the side lengths of every right triangle you can imagine.  This may seem basic
+and obvious, but to write robust, well-designed, testable, and composable
+programs, you must identify and exploit points of genericity wherever possible.
+
+=head2 Variable Scopes
+
+Z<variable_scopes>
+
+X<variables; scope>
+X<scope>
+
+Variables also have visibility, depending on their scope (L<scope>).  Most of
+the variables you will encounter have lexical scope (L<lexical_scope>).
+Remember that files themselves have their own lexical scopes, such that the
+C<package> declaration on its own does not create a new scope:
+
+=begin programlisting
+
+    package Store::Toy;
+
+    our $discount = 0.10;
+
+    package Store::Music;
+
+    # $Store::Toy::discount still visible as $discount
+    say "Our current discount is $discount!";
+
+=end programlisting
+
+=head2 Variable Sigils
+
+Z<sigils>
+
+X<variables; sigils>
+X<sigils>
+
+In Perl 5, the sigil of the variable in a declaration determines the type of
+the variable, whether scalar, array, or hash.  The sigil of the variable used
+to access the variable determines the type of access to its value.  Sigils on
+variables vary depending on what you do to the variable.  For example, declare
+an array as C<@values>.  Access the first element--a single value--of the array
+with C<$values[0]>.  Access a list of values from the array with C<@values[
+@indices ]>.
+
+=head2 Anonymous Variables
+
+X<anonymous variables>
+X<variables; anonymous>
+
+Perl 5 variables do not I<need> names; Perl manages variables just fine without
+caring about how you refer to them.  Variables created without literal names in
+your source code (such as C<$apple>, C<@boys>, C<%cheeseburgers>) are
+I<anonymous> variables.  The only way to access anonymous variables is by
+reference (L<references>).
+
+=head2 Variables, Types, and Coercion
+
+X<variables; types>
+X<variables; container type>
+X<variables; value type>
+
+A variable in Perl 5 represents two things: the value (a dollar value, a list
+of pizza toppings, a group of guitar shops and their phone numbers) and the
+container which stores that value.  Perl 5's type system deals with I<value
+types> and I<container types>.  A variable's value type--whether a value is a
+string or a number, for example--can change.  You may store a string in a
+variable in one line, append to that variable a number on the next, and
+reassign a reference to a function (L<function_references>) on the third.  A
+variable's I<container type>--whether it's a scalar, an array, or a
+hash--cannot change.
+
+Assigning to a variable may cause coercion (L<coercion>).  The documented way
+to determine the number of entries in an array is to evaluate that array in
+scalar context (L<context_philosophy>).  Because a scalar variable can only
+ever contain a scalar, assigning an array to a scalar imposes scalar context on
+the operation and produces the number of elements in the array:
+
+=begin programlisting
+
+    my $count = @items;
+
+=end programlisting
+
+The relationship between variable types, sigils, and context is vital to a
+proper understanding of Perl.

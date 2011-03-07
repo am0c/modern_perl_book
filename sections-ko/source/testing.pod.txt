@@ -1,0 +1,383 @@
+=head1 Testing
+
+Z<testing>
+
+X<testing>
+
+I<Testing> is the process of writing and running automated verifications that
+your software behaves as intended, in whole or in part.  At its heart, this is
+an automation of a process you've performed countless times already: write a
+bit of code, run it, and see if it works.  The difference is in the
+I<automation>.  Rather than relying on humans to perform each manual check
+perfectly every time, let the computer handle the repetition.
+
+Perl 5 provides great tools to help you write good and useful automated tests.
+
+=head2 Test::More
+
+X<C<Test::More>>
+X<C<ok()>>
+X<testing; C<ok()>>
+
+Perl testing begins with the core module C<Test::More> and its C<ok()>
+function.  C<ok()> takes two parameters, a boolean value and a string
+describing the purpose of the test:
+
+=begin programlisting
+
+    ok(   1, 'the number one should be true'         );
+    ok(   0, '... and the number zero should not'    );
+    ok(  '', 'the empty string should be false'      );
+    ok( '!', '... and a non-empty string should not' );
+
+=end programlisting
+
+Ultimately, any condition you can test for in your program should become a
+binary value.  Does the code work as I intended?  A complex program may have
+thousands of these individual conditions.  In general, the smaller the
+granularity the better.  The purpose of writing individual assertions is to
+isolate individual features to understand what doesn't work as you intended and
+what ceases to work after you make changes in the future.
+
+X<testing; plan>
+X<C<plan()>>
+
+This snippet isn't a complete test script, however.  C<Test::More> and related
+modules require the use of a I<test plan>, which represents the number of
+individual tests you plan to run:
+
+=begin programlisting
+
+    use Test::More tests => 4;
+
+    ok(   1, 'the number one should be true'         );
+    ok(   0, '... and the number zero should not'    );
+    ok(  '', 'the empty string should be false'      );
+    ok( '!', '... and a non-empty string should not' );
+
+=end programlisting
+
+The C<tests> argument to C<Test::More> sets the test plan for the program.
+This gives the test an additional assertion.  If fewer than four tests ran,
+something went wrong.  If more than four tests ran, something went wrong.  That
+assertion is unlikely to be useful in this simple scenario, but it I<can> catch
+bugs in code that seems too simple to have errorsN<As a rule, any code you brag
+about being too simple to contain errors will contain errors at the least
+opportune moment.>.
+
+=begin sidebar
+
+You don't have to provide C<< tests => ... >> as an C<import()> argument.  At
+the end of your test program, call the function C<done_testing()>.  While a
+plan at the start with a fixed number of tests can verify that you ran only the
+expected number of tests, sometimes it's difficult or painful to verify that
+number.  In those cases, C<done_testing()> verifies that the test program
+completed successfully--otherwise, how would you I<know>?
+
+=end sidebar
+
+=head2 Running Tests
+
+Z<running_tests>
+
+The resulting program is now a full-fledged Perl 5 program which produces the
+output:
+
+=begin screen
+
+    1..4
+
+    ok 1 - the number one should be true
+    not ok 2 - ... and the number zero should not
+    #   Failed test '... and the number zero should not'
+    #   at truth_values.t line 4.
+    not ok 3 - the empty string should be false
+    #   Failed test 'the empty string should be false'
+    #   at truth_values.t line 5.
+    ok 4 - ... and a non-empty string should not
+    # Looks like you failed 2 tests of 4.
+
+=end screen
+
+X<TAP (Test Anything Protocol)>
+X<testing; TAP>
+
+This format adheres to a standard of test output called I<TAP>, the I<Test
+Anything Protocol> (U<http://testanything.org/>).  As part of this protocol,
+failed tests produce diagnostic messages.  This is a tremendous aid to
+debugging.
+
+X<C<Test::Harness>>
+X<C<prove>>
+X<testing; C<prove>>
+X<testing; running tests>
+
+The output of a test file containing multiple assertions (especially multiple
+I<failed> assertions) can be verbose.  In most cases, you want to know either
+that everything passed or that x, y, and z failed.  The core module
+C<Test::Harness> interprets TAP and displays only the most pertinent
+information.  It also provides a program called C<prove> which takes the hard
+work out of the process:
+
+=begin programlisting
+
+    $ B<prove truth_values.t>
+    truth_values.t .. 1/4
+    #   Failed test '... and the number zero should not'
+    #   at truth_values.t line 4.
+
+    #   Failed test 'the empty string should be false'
+    #   at truth_values.t line 5.
+    # Looks like you failed 2 tests of 4.
+    truth_values.t .. Dubious, test returned 2 (wstat 512, 0x200)
+    Failed 2/4 subtests
+
+    Test Summary Report
+    -------------------
+    truth_values.t (Wstat: 512 Tests: 4 Failed: 2)
+      Failed tests:  2-3
+
+=end programlisting
+
+That's a lot of output to display what is already obvious: the second and third
+tests fail because zero and the empty string evaluate to false.  It's easy to
+fix that failure by inverting the sense of the condition with the use of
+boolean coercion (L<boolean_coercion>):
+
+=begin programlisting
+
+    ok(   B<!> 0, '... and the number zero should not'  );
+    ok(  B<!> '', 'the empty string should be false'    );
+
+=end programlisting
+
+With those two changes, C<prove> now displays:
+
+=begin screen
+
+    $ B<prove truth_values.t>
+    truth_values.t .. ok
+    All tests successful.
+
+=end screen
+
+=head2 Better Comparisons
+
+Even though the heart of all automated testing is the boolean condition "is
+this true or false?", reducing everything to that boolean condition is tedious
+and offers few diagnostic possibilities.  C<Test::More> provides several other
+convenient functions to ensure that your code behaves as you intend.
+
+X<C<is()>>
+X<testing; C<is()>>
+X<operators; C<eq>>
+
+The C<is()> function compares two values using the C<eq> operator.  If the
+values are equal, the test passes.  Otherwise, the test fails and provides a
+relevant diagnostic message:
+
+=begin programlisting
+
+    is(         4, 2 + 2, 'addition should hold steady across the universe' );
+    is( 'pancake',   100, 'pancakes should have a delicious numeric value' );
+
+=end programlisting
+
+As you might expect, the first test passes and the second fails:
+
+=begin screen
+
+    t/is_tests.t .. 1/2
+    #   Failed test 'pancakes should have a delicious numeric value'
+    #   at t/is_tests.t line 8.
+    #          got: 'pancake'
+    #     expected: '100'
+    # Looks like you failed 1 test of 2.
+
+=end screen
+
+Where C<ok()> only provides the line number of the failing test, C<is()>
+displays the mismatched values.
+
+C<is()> applies implicit scalar context to its values.  This means, for
+example, that you can check the number of elements in an array without
+explicitly evaluating the array in scalar context:
+
+=begin programlisting
+
+    my @cousins = qw( Rick Kristen Alex Kaycee Eric Corey );
+    is( @cousins, 6, 'I should have only six cousins' );
+
+=end programlisting
+
+... though some people prefer to write C<scalar @cousins> for the sake of
+clarity.
+
+X<C<isnt()>>
+X<testing; C<isnt()>>
+X<operators; C<ne>>
+
+C<Test::More> provides a corresponding C<isnt()> function which passes if the
+provided values are not equal (according to the C<ne> operator).  Otherwise, it
+behaves the same way as C<is()> with respect to scalar context and comparison
+types.
+
+X<C<cmp_ok()>>
+X<testing; C<cmp_ok()>>
+
+Both C<is()> and C<isnt()> apply I<string comparisons> with the Perl 5
+operators C<eq> and C<ne>.  This almost always does the right thing, but for
+complex values such as objects with overloading (L<overloading>) or dual vars
+(L<dualvars>), you may prefer explicit comparison testing.  The C<cmp_ok()>
+function allows you to specify your own comparison operator:
+
+=begin programlisting
+
+    cmp_ok(     100, $cur_balance, '<=', 'I should have at least $100' );
+    cmp_ok( $monkey,         $ape, '==', 'Simian numifications should agree' );
+
+=end programlisting
+
+X<C<isa_ok()>>
+X<testing; C<isa_ok()>>
+
+Classes and objects provide their own interesting ways to interact with tests.
+Test that a class or object extends another class (L<inheritance>) with
+C<isa_ok()>:
+
+=begin programlisting
+
+    my $chimpzilla = RobotMonkey->new();
+    isa_ok( $chimpzilla, 'Robot' );
+    isa_ok( $chimpzilla, 'Monkey' );
+
+=end programlisting
+
+C<isa_ok()> provides its own diagnostic message on failure.
+
+C<can_ok()> verifies that a class or object can do the requested method (or
+methods):
+
+=begin programlisting
+
+    can_ok( $chimpzilla, 'eat_banana' );
+    can_ok( $chimpzilla, 'transform', 'destroy_tokyo' );
+
+=end programlisting
+
+The C<is_deeply()> function compares two references to ensure that their
+contents are equal:
+
+=begin programlisting
+
+    use Clone;
+
+    my $numbers   = [ 4, 8, 15, 16, 23, 42 ];
+    my $clonenums = Clone::clone( $numbers );
+
+    is_deeply( $numbers, $clonenums,
+         'Clone::clone() should produce identical structures' );
+
+=end programlisting
+
+If the comparison fails, C<Test::More> will do its best to provide a reasonable
+diagnostic indicating the position of the first inequality between the
+structures.  See the CPAN modules C<Test::Differences> and C<Test::Deep> for
+more configurable tests.
+
+C<Test::More> has several more test functions, but these are the most useful.
+
+=head2 Organizing Tests
+
+X<testing; F<.t> files>
+X<testing; F<t/> directory>
+X<C<Module::Build>>
+X<C<ExtUtils::MakeMaker>>
+
+CPAN's infrastructure and ecosystem expects distributions to include a F<t/>
+containing one or more test files named with the F<.t> suffix.  By default,
+when you build a distribution with C<Module::Build> or C<ExtUtils::MakeMaker>,
+the testing step runs all of the F<t/*.t> files, summarizes their output, and
+succeeds or fails on the results of the test suite as a whole.  There are no
+concrete guidelines on how to manage the contents of individual F<.t> files,
+though two strategies are popular:
+
+=over 4
+
+=item * Each F<.t> file should correspond to a F<.pm> file
+
+=item * Each F<.t> file should correspond to a feature
+
+=back
+
+The important considerations are maintainability of the test files, as larger
+files are more difficult to maintain than smaller files, and the granularity of
+the test suite.  A hybrid approach is the most flexible; one test can verify
+that all of your modules compile, while other tests verify that each module
+behaves as intended.
+
+It's often useful to run tests only for a specific feature under development.
+If you're adding the ability to breathe fire to your C<RobotMonkey>, you may
+want only to run the F<t/breathe_fire.t> test file.  When you have the feature
+working to your satisfaction, run the entire test suite to verify that local
+changes have no unintended global effects.
+
+=head2 Other Testing Modules
+
+X<C<Test::Builder>>
+X<testing; C<Test::Builder>>
+
+C<Test::More> relies on a testing backend known as C<Test::Builder>.  The
+latter module manages the test plan and coordinates the test output into TAP.
+This design allows multiple test modules to share the same C<Test::Builder>
+backend.  Consequently, the CPAN has hundreds of test modules available--and
+they can all work together in the same program.
+
+X<C<Test::Exception>>
+X<C<Test::Fatal>>
+X<C<Test::MockObject>>
+X<C<Test::MockModule>>
+X<C<Test::WWW::Mechanize>>
+X<C<Test::Database>>
+X<C<Test::Class>>
+X<C<Test::Differences>>
+X<C<Test::Deep>>
+X<C<Devel::Cover>>
+
+=over 4
+
+=item * C<Test::Exception> provides functions to ensure that your code throws
+(and does not throw) exceptions appropriately. C<Test::Fatal> is a newer module
+with the same purpose.
+
+=item * C<Test::MockObject> and C<Test::MockModule> allow you to test difficult
+interfaces by I<mocking> (emulating but producing different results).
+
+=item * C<Test::WWW::Mechanize> allows you to test live web applications.
+
+=item * C<Test::Database> provides functions to test the use and abuse of
+databases.
+
+=item * C<Test::Class> offers an alternate mechanism for organizing test
+suites.  It allows you to create classes in which specific methods group tests.
+You can inherit from test classes just as your code classes inherit from each
+other.  This is an excellent way to reduce duplication in test suites.  See the
+C<Test::Class> series written by Curtis Poe at
+U<http://www.modernperlbooks.com/mt/2009/03/organizing-test-suites-with-testclass.html>.
+
+=item * C<Test::Differences> tests strings and data structures for equality and
+displays any differences in its diagnostics.
+
+=item * C<Test::Deep> tests the equivalence of nested data structures
+(L<nested_data_structures>).
+
+=item * C<Devel::Cover> analyzes the execution of your test suite to report on
+the amount of your code your tests actually exercises.  In general, the more
+coverage the better--though 100% coverage is not always possible, 95% is far
+better than 80%.
+
+=back
+
+The Perl QA project (U<http://qa.perl.org/>) is a primary source of test
+modules as well as wisdom and practical experience making testing in Perl easy
+and effective.

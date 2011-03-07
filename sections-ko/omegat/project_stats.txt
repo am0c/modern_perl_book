@@ -1,0 +1,92 @@
+Project Statistics
+
+Total:
+	Segments	8765
+	Words	77977
+	Characters (without spaces)	422487
+	Characters (including spaces)	485210
+Remaining:
+	Segments	8765
+	Words	77977
+	Characters (without spaces)	422487
+	Characters (including spaces)	485210
+Unique:
+	Segments	6346
+	Words	74090
+	Characters (without spaces)	390767
+	Characters (including spaces)	451152
+Unique Remaining:
+	Segments	6346
+	Words	74090
+	Characters (without spaces)	390767
+	Characters (including spaces)	451152
+
+Individual File Statistics:
+
+File Name	Total Words	Remaining Words	Total Characters (without spaces)	Remaining Characters (without spaces)	Total Characters (including spaces)	Remaining Characters (including spaces)
+advanced_oo.pod.txt	918	918	5017	5017	5763	5763
+anonymous_functions.pod.txt	1147	1147	6546	6546	7533	7533
+arrays.pod.txt	1742	1742	9096	9096	10530	10530
+attributes.pod.txt	674	674	3926	3926	4469	4469
+autoload.pod.txt	1247	1247	6938	6938	7943	7943
+barewords.pod.txt	1038	1038	5580	5580	6397	6397
+blessed_references.pod.txt	1625	1625	8647	8647	9945	9945
+builtins.pod.txt	94	94	551	551	625	625
+chapter_00.pod.txt	889	889	4794	4794	5525	5525
+chapter_01.pod.txt	204	204	1055	1055	1223	1223
+chapter_02.pod.txt	175	175	941	941	1089	1089
+chapter_03.pod.txt	93	93	525	525	588	588
+chapter_04.pod.txt	137	137	743	743	847	847
+chapter_05.pod.txt	103	103	525	525	596	596
+chapter_06.pod.txt	155	155	880	880	996	996
+chapter_07.pod.txt	121	121	727	727	822	822
+chapter_08.pod.txt	145	145	730	730	850	850
+chapter_09.pod.txt	131	131	682	682	780	780
+chapter_10.pod.txt	83	83	441	441	510	510
+chapter_11.pod.txt	79	79	408	408	466	466
+chapter_12.pod.txt	76	76	379	379	442	442
+closures.pod.txt	1155	1155	6737	6737	7687	7687
+code_generation.pod.txt	1516	1516	8713	8713	9941	9941
+coercion.pod.txt	910	910	4720	4720	5440	5440
+context_philosophy.pod.txt	1253	1253	6658	6658	7713	7713
+control_flow.pod.txt	4080	4080	22579	22579	25852	25852
+cpan.pod.txt	971	971	5500	5500	6259	6259
+distributions.pod.txt	1179	1179	6340	6340	7279	7279
+exceptions.pod.txt	1043	1043	5659	5659	6504	6504
+expressivity.pod.txt	751	751	4007	4007	4632	4632
+files.pod.txt	2731	2731	14142	14142	16197	16197
+functions.pod.txt	3594	3594	20059	20059	23038	23038
+globals.pod.txt	1352	1352	7254	7254	8259	8259
+handling_warnings.pod.txt	1103	1103	6126	6126	6930	6930
+hashes.pod.txt	2612	2612	13991	13991	16189	16189
+idioms.pod.txt	2642	2642	14062	14062	16229	16229
+implicit_ideas.pod.txt	989	989	5447	5447	6201	6201
+indirect_objects.pod.txt	687	687	3737	3737	4273	4273
+method_sub_equivalence.pod.txt	727	727	3970	3970	4554	4554
+missing_defaults.pod.txt	846	846	4431	4431	5104	5104
+modules.pod.txt	1259	1259	6963	6963	7959	7959
+moose.pod.txt	4705	4705	24691	24691	28509	28509
+names.pod.txt	787	787	4309	4309	4920	4920
+nested_data_structures.pod.txt	1438	1438	8307	8307	9589	9589
+operator_characteristics.pod.txt	1014	1014	5717	5717	6466	6466
+operator_types.pod.txt	1486	1486	8496	8496	9656	9656
+overloading.pod.txt	770	770	4396	4396	5055	5055
+packages.pod.txt	839	839	4489	4489	5147	5147
+perl_community.pod.txt	748	748	4276	4276	4786	4786
+perldoc.pod.txt	706	706	3617	3617	4167	4167
+pragmas.pod.txt	632	632	3372	3372	3868	3868
+prototypes.pod.txt	1276	1276	6774	6774	7829	7829
+references.pod.txt	2274	2274	12525	12525	14434	14434
+reflection.pod.txt	1071	1071	5360	5360	6217	6217
+regular_expressions.pod.txt	4779	4779	26534	26534	30357	30357
+scalars.pod.txt	732	732	3863	3863	4451	4451
+scope.pod.txt	1500	1500	7713	7713	8822	8822
+smart_match.pod.txt	458	458	2458	2458	2918	2918
+state.pod.txt	443	443	2522	2522	2880	2880
+style.pod.txt	1160	1160	6184	6184	7154	7154
+taint.pod.txt	800	800	4151	4151	4780	4780
+testing.pod.txt	2043	2043	10737	10737	12434	12434
+tie.pod.txt	847	847	4247	4247	4904	4904
+universal.pod.txt	954	954	4919	4919	5708	5708
+values.pod.txt	3685	3685	19733	19733	22683	22683
+variables.pod.txt	554	554	2871	2871	3297	3297
