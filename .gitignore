@@ -2,5 +2,6 @@ build/chapters
 build/html/*.html
 build/pdf/*.pdf
 examples/
+sections-ko/omegat/project_save.tmx.*.bak
 !build/pdf/.gitignore
 !build/epub/.gitignore
