@@ -6,20 +6,20 @@ Total:
 	Characters (without spaces)	422487
 	Characters (including spaces)	485210
 Remaining:
-	Segments	8765
-	Words	77977
-	Characters (without spaces)	422487
-	Characters (including spaces)	485210
+	Segments	8751
+	Words	77777
+	Characters (without spaces)	421469
+	Characters (including spaces)	484021
 Unique:
 	Segments	6346
 	Words	74090
 	Characters (without spaces)	390767
 	Characters (including spaces)	451152
 Unique Remaining:
-	Segments	6346
-	Words	74090
-	Characters (without spaces)	390767
-	Characters (including spaces)	451152
+	Segments	6332
+	Words	73890
+	Characters (without spaces)	389749
+	Characters (including spaces)	449963
 
 Individual File Statistics:
 
@@ -33,7 +33,7 @@ barewords.pod.txt	1038	1038	5580	5580	6397	6397
 blessed_references.pod.txt	1625	1625	8647	8647	9945	9945
 builtins.pod.txt	94	94	551	551	625	625
 chapter_00.pod.txt	889	889	4794	4794	5525	5525
-chapter_01.pod.txt	204	204	1055	1055	1223	1223
+chapter_01.pod.txt	204	8	1055	63	1223	63
 chapter_02.pod.txt	175	175	941	941	1089	1089
 chapter_03.pod.txt	93	93	525	525	588	588
 chapter_04.pod.txt	137	137	743	743	847	847
@@ -41,7 +41,7 @@ chapter_05.pod.txt	103	103	525	525	596	596
 chapter_06.pod.txt	155	155	880	880	996	996
 chapter_07.pod.txt	121	121	727	727	822	822
 chapter_08.pod.txt	145	145	730	730	850	850
-chapter_09.pod.txt	131	131	682	682	780	780
+chapter_09.pod.txt	131	127	682	656	780	751
 chapter_10.pod.txt	83	83	441	441	510	510
 chapter_11.pod.txt	79	79	408	408	466	466
 chapter_12.pod.txt	76	76	379	379	442	442
