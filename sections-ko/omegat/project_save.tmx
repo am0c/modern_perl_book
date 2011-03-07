@@ -14,6 +14,324 @@
   <body>
     <tu>
       <tuv lang="EN-US">
+        <seg>One of Perl's most useful and least appreciated features is the C&lt;perldoc&gt;
+utility.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>펄에서 가장 유연하면서도 그 가치가 잘 활용되지 않는 기능 중 하나는 C&lt;perldoc&gt; 도구입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This program is part of every complete Perl 5 installationN&lt;You may
+have to install an additional package on a free GNU/Linux distribution or
+another Unix-like system; on Debian and Ubuntu this is C&lt;perl-doc&gt;.&gt;.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>이 프로그램은 모든 펄 5 설치N&lt;GNU/Linux 배포판이나 기타 유닉스 계열 시스템에서는 추가로 패키지를 설치해야 할 수도 있습니다; 데비안이나 우분투인 경우 C&lt;perl-doc&gt;입니다.&gt;에 포함됩니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It
+displays the documentation of every Perl module installed on the
+system--whether a core module or one installed from the Comprehensive Perl
+Archive Network (CPAN)--as well as thousands of pages of Perl's copious core
+documentation.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>시스템에 설치된 모든 펄 모듈에 대한 문서를 보여줍니다. 기본 모듈 Comprehensive Perl Archive Network (CPAN)에서 받은 모듈 모두 가능합니다. 게다가 몇천 페이지에 달하는 펄의 방대한 기본 문서도 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you prefer an online version, U&lt;http://perldoc.perl.org/&gt; hosts recent
+versions of the Perl documentation.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>온라인으로 보는 것을 선호한다면, 최신 버전의 펄 문서가 제공되는 U&lt;http://perldoc.perl.org/&gt;가 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>U&lt;http://search.cpan.org/&gt; displays the
+documentation of every module on the CPAN.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>U&lt;http://search.cpan.org/&gt; 는 CPAN에 있는 모든 모듈의 문서를 보여줍니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Windows users, both ActivePerl and
+Strawberry Perl provide a link in your Start menu to the documentation.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>윈도 사용자의 경우 ActivePerl이나 Straberry Perl 모두 시작 메뉴에 문서 링크가 제공됩니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The default behavior of C&lt;perldoc&gt; is to display the documentation for a named
+module or a specific section of the core documentation:</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>C&lt;perldoc&gt;의 기본 기능은 이름이 있는 모듈의 문서나 기본 문서의 특정 절을 보여주는 것입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The first example extracts documentation written for the C&lt;List::Util&gt; module
+and displays it in a form appropriate for your screen.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>첫번째 예제를 수행하면 C&lt;List::Util&gt; 모듈을 위해 작성된 문서를 추출하여 여러분의 화면에 알맞은 양식으로 보여줍니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Community standards for
+CPAN modules (L&lt;cpan&gt;) suggest that additional libraries use the same
+documentation format and form as core modules, so there's no distinction
+between reading the documentation for a core library such as C&lt;Data::Dumper&gt; or
+one installed from the CPAN.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>CPAN 모듈의 커뮤니티 표준(L&lt;cpan&gt;)은 추가적인 라이브러리가 기본 모듈의 것과 같은 문서 양식을 사용하는 것을 제안합니다. 따라서 C&lt;Data::Dumper&gt;와 같은 기본 라이브러리 문서를 읽는 것은 CPAN에서 설치한 모듈의 문서와 다른 점이 없습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The standard documentation template includes a
+description of the module, demonstrates sample uses, and then contains a
+detailed explanation of the module and its interface.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>표준적인 문서 견본은 모듈의 설명과 실례 사용법을 포함하고, 그런 후에 모듈의 자세한 설명과 인터페이스를 설명합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>While the amount of
+documentation varies by author, the form of the documentation is remarkably
+consistent.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>저자에 따라 문서의 양은 다양한 반면, 문서의 양식은 현저하게 일관적입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The second example displays a pure documentation file, in this case the table
+of contents of the core documentation itself.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>두번째 예제는 순수하게 문서 파일만을 보여줍니다. 이 경우에는 기본 문서의 목차를 보여줍니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This file describes each
+individual piece of the core documentation; browse it for a good understanding
+of Perl's breadth.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>이 파일은 기본 문서의 각 일부분을 설명합니다. 필요한 부분을 펄에 대한 폭넓은 이해를 위해 열람합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The third example resembles the second; C&lt;Moose::Manual&gt; is part of the Moose
+CPAN distribution (L&lt;moose&gt;).</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>세번째 예제는 두번째 예제와 비슷합니다. C&lt;Moose::Manual&gt;은 CPAN에서 배포되는 Moose(L&lt;moose&gt;)의 일부분입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is also purely documentation; it contains no
+code.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>이것도 순수한 문서 파일로 코드를 전혀 포함하지 않습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Similarly, C&lt;perldoc perlfaq&gt; will display the table of contents for Frequently
+Asked Questions about Perl 5.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>같은 양상으로, C&lt;perldoc perlfaq&gt;는 펄 5의 자주 하는 질문(FAQ)의 목차를 보여줍니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Skimming these questions is invaluable.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>여기있는 질문들을 훑어보는 것은 매우 유용합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>X&lt;perldoc; C&lt;-q&gt; (search perlfaq)&gt;</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>X&lt;perldoc; C&lt;-q&gt; (perlfaq 검색하기)&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The C&lt;perldoc&gt; utility has many more abilities (see C&lt;perldoc perldoc&gt;).</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>C&lt;perldoc&gt; 도구에는 그외 더 많은 기능이 있습니다. (C&lt;perldoc perldoc&gt;를 해보세요).</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Two
+of the most useful are the C&lt;-q&gt; and the C&lt;-f&gt; flags.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>가장 유용한 것 중 두 개는 C&lt;-q&gt;와 C&lt;-f&gt; 플래그입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The C&lt;-q&gt; flag takes a
+keyword or keywords and searches only the Perl FAQ, displaying all results.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>C&lt;-q&gt; 플래그는 하나 또는 그 이상의 키워드를 받아 펄 FAQ를 검색하고 모든 결과를 표시합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Thus C&lt;perldoc -q sort&gt; returns three questions: I&lt;How do I sort an array by
+(anything)?&gt;, I&lt;How do I sort a hash (optionally by value instead of key)?&gt;,
+and I&lt;How can I always keep my hash sorted?&gt;.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>따라서 C&lt;perldoc -q sort&gt;는 세 개의 질문을 반환합니다: I&lt;(어떤 방법)으로 배열을 정렬하는 방법은 무엇인가요?&gt;, I&lt;어떻게 해시를 정렬하나요? (추가적으로 키 대신 값으로)&gt;,
+and I&lt;어떻게 해시가 항상 정렬을 유지하도록 하나요?&gt;.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>X&lt;perldoc; C&lt;-f&gt; (search perlfunc)&gt;</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>X&lt;perldoc; C&lt;-f&gt; (perlfunc 검색하기)&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The C&lt;-f&gt; flag displays the core documentation for a builtin Perl function.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>C&lt;-f&gt; 플래그는 펄의 기본 함수에 대한 기본 문서를 출력합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>C&lt;perldoc -f sort&gt; explains the behavior of the C&lt;sort&gt; operator.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>C&lt;perldoc -f sort&gt; 는 C&lt;sort&gt; 연산자의 행동을 설명합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you don't
+know the name of the function you want, use C&lt;perldoc perlfunc&gt; to see a list
+of functions.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>만약 여러분이 원하는 함수의 이름을 모른다면, C&lt;perldoc perlfunc&gt;를 사용하여 함수의 목록을 참고합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>C&lt;perldoc perlop&gt; and C&lt;perldoc perlsyn&gt; document Perl's symbolic operators and
+syntactic constructs; C&lt;perldoc perldiag&gt; explains the meanings of Perl's
+warning messages.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>C&lt;perldoc perlop&gt;과 C&lt;perldoc perlsyn&gt;는 펄의 기호 연산자와 문법 구성이 기록되어 있습니다. C&lt;perldoc perldiag&gt;는 펄의 경고 메시지의 의미를 설명합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Perl 5's documentation system is I&lt;POD&gt;, or I&lt;Plain Old Documentation&gt;.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>펄 5의 문서 체계를 I&lt;POD&gt; 또는 I&lt;Plain Old Documentation&gt;라고 합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>C&lt;perldoc perlpod&gt; describes how POD works.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>C&lt;perldoc perlpod&gt;는 POD가 작동하는 방식을 설명합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The C&lt;perldoc&gt; utility will
+display the POD in any Perl module you create and install for your project, and
+other POD tools such as C&lt;podchecker&gt;, which validates the form of your POD,
+and C&lt;Pod::Webserver&gt;, which displays local POD as HTML through a minimal web
+server, will handle valid POD correctly.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>C&lt;perldoc&gt; 도구는 여러분의 프로젝트에서 제작했거나 설치한 모든 펄 모듈에 포함된 POD를 보여줄 수 있습니다. C&lt;podchecker&gt;는 여러분의 POD 양식이 옳바른지 검사합니다. C&lt;Pod::Webserver&gt;는 로컬의 POD를 작은 웹 서버를 통해 HTML로 보여줍니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>X&lt;perldoc; C&lt;-l&gt; (list path to POD)&gt;
+X&lt;perldoc; C&lt;-m&gt; (show raw POD)&gt;</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>X&lt;perldoc; C&lt;-l&gt; (POD 경로 나열하기)&gt;
+X&lt;perldoc; C&lt;-m&gt; (POD 파일 그대로 보여주기)&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>C&lt;perldoc&gt; has other uses.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>C&lt;perldoc&gt;은 다른 용도로도 사용할 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>With the C&lt;-l&gt; command-line flag, it displays the
+I&lt;path&gt; to the documentation file rather than the contents of the
+documentationN&lt;Be aware that a module may have a separate F&lt;.pod&gt; file in
+addition to its F&lt;.pm&gt; file.&gt;.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>C&lt;-l&gt; 명령행 플래그를 사용하면 문서N&lt;모듈이 F&lt;.pm&gt;파일과 추가적으로 F&lt;.pod&gt;파일까지 포함할 수도 있다는 점을 주의하세요.&gt;의 내용물 대신 문서 파일의 I&lt;path&gt;를 보여줍니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>With the C&lt;-m&gt; flag, it displays the entire
+I&lt;contents&gt; of the module, code and all, without processing any POD
+instructions.</seg>
+      </tuv>
+      <tuv lang="KO">
+        <seg>C&lt;-m&gt; 플래그를 사용하면 POD 명령어들을 처리하지 않고 모듈의 모든 I&lt;contents&gt;와, 코드 등을 모두 있는 그대로 보여줍니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>=head0 The Perl Philosophy</seg>
       </tuv>
       <tuv lang="KO">

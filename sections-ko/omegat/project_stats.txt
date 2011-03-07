@@ -6,20 +6,20 @@ Total:
 	Characters (without spaces)	422487
 	Characters (including spaces)	485210
 Remaining:
-	Segments	8751
-	Words	77777
-	Characters (without spaces)	421469
-	Characters (including spaces)	484021
+	Segments	8717
+	Words	77104
+	Characters (without spaces)	418038
+	Characters (including spaces)	480055
 Unique:
 	Segments	6346
 	Words	74090
 	Characters (without spaces)	390767
 	Characters (including spaces)	451152
 Unique Remaining:
-	Segments	6332
-	Words	73890
-	Characters (without spaces)	389749
-	Characters (including spaces)	449963
+	Segments	6298
+	Words	73217
+	Characters (without spaces)	386318
+	Characters (including spaces)	445997
 
 Individual File Statistics:
 
@@ -73,7 +73,7 @@ operator_types.pod.txt	1486	1486	8496	8496	9656	9656
 overloading.pod.txt	770	770	4396	4396	5055	5055
 packages.pod.txt	839	839	4489	4489	5147	5147
 perl_community.pod.txt	748	748	4276	4276	4786	4786
-perldoc.pod.txt	706	706	3617	3617	4167	4167
+perldoc.pod.txt	706	33	3617	186	4167	201
 pragmas.pod.txt	632	632	3372	3372	3868	3868
 prototypes.pod.txt	1276	1276	6774	6774	7829	7829
 references.pod.txt	2274	2274	12525	12525	14434	14434
